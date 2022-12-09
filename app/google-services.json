@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "625373405776",
+    "project_id": "simshospital-e0866",
+    "storage_bucket": "simshospital-e0866.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625373405776:android:a803a4c1ce616fc2556755",
+        "android_client_info": {
+          "package_name": "com.sims.staffportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625373405776-5ka10ogmfd6qunkkuq9nrt2v5d2rqvpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4yhz_uZLWEfhEx_JfdJdTHAIDKMUwTgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625373405776-5ka10ogmfd6qunkkuq9nrt2v5d2rqvpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

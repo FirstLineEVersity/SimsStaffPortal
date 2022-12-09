@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".viewpager.DailyQuestionerViewPager">
+    <include
+        android:id="@+id/pageHeader" layout="@layout/page_header"></include>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpQuestion"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/pageHeader"
+        android:layout_height="500dp"
+        android:background="@color/cardColorList"/>
+</RelativeLayout>
