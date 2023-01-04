@@ -51,8 +51,14 @@ public class HomeScreenCategory extends AppCompatActivity {
         lngEmployeeId = loginsession.getLong("userid", 1);
         intCategoryId = loginsession.getInt("categoryid", 0);
 //        intCategoryId = getIntent().getIntExtra("CategoryId", 0);
-        if (intCategoryId == 2){//Daily Activity
-            tvPageTitle.setText(getResources().getString(R.string.hDailyActivity));
+        if (intCategoryId == 2){// Leave Management
+            tvPageTitle.setText(getResources().getString(R.string.mLeaveManagement));
+        }else if (intCategoryId == 3){//Workforce
+            tvPageTitle.setText(getResources().getString(R.string.hWorkForce));
+       }else if (intCategoryId == 4){//Communication
+            tvPageTitle.setText(getResources().getString(R.string.hNotification));
+        }else if (intCategoryId == 5){//Others
+            tvPageTitle.setText(getResources().getString(R.string.hOthers));
         }
         getMenuValues();
     }
@@ -78,8 +84,15 @@ public class HomeScreenCategory extends AppCompatActivity {
             if (intCategoryId == 1){ // Profile
                 strMenuId = "1";
             }else if (intCategoryId == 2){// Leave Management
-                strMenuId = "2,3";
-            }else if (intCategoryId == 3){//Logout
+                strMenuId = "3,4,5";
+            }else if (intCategoryId == 3){//Workforce
+                strMenuId = "8,9";
+            }else if (intCategoryId == 4){//Communication
+                strMenuId = "11,12,13";  //,12 atpresent Notificationtoall hided
+            }else if (intCategoryId == 5){//daily activity
+                strMenuId = "6,7";
+
+            }else if (intCategoryId == 6){//Logout
                 strMenuId = "50";
             }
             Cursor cursor = db.rawQuery("SELECT * FROM userwisemenuaccessrights WHERE employeeid =" + lngEmployeeId + " AND menuid in ("+strMenuId +")  ORDER BY  menusortnumber", null );
@@ -91,14 +104,37 @@ public class HomeScreenCategory extends AppCompatActivity {
                 do {
                     @SuppressLint("Range") long lngMenuId=cursor.getLong(cursor.getColumnIndex("menuid"));
                     @SuppressLint("Range") String strMenuname = cursor.getString(cursor.getColumnIndex("menuname"))+ "##" +lngMenuId;
-
                     MENULIST[i] = strMenuname;
                     if (lngMenuId == 1){
                         ICONS[i] = R.drawable.icon_profile;
                     }else if (lngMenuId == 2){
                         ICONS[i] = R.drawable.icon_daily_activity_entry;
-                    }else if (lngMenuId == 3){
+                    } else if (lngMenuId == 3){
+                        ICONS[i] = R.drawable.icon_leavestatus;
+                    }else if (lngMenuId == 4){
+                        ICONS[i] = R.drawable.icon_leaveentry;
+                    }else if (lngMenuId == 5){
+                        ICONS[i] = R.drawable.icon_leaveapproval;
+                    }else if (lngMenuId == 6){
+                        ICONS[i] = R.drawable.icon_daily_activity_entry;
+                    }else if (lngMenuId == 7){
                         ICONS[i] = R.drawable.icon_daily_activity_approval;
+                    }else if (lngMenuId == 8){
+                        ICONS[i] = R.drawable.icon_biometriclog;
+                    }else if (lngMenuId == 9){
+                        ICONS[i] = R.drawable.icon_payslip;
+                    }else if (lngMenuId == 10){
+                        ICONS[i] = R.drawable.icon_notification;
+                    }else if (lngMenuId == 11){
+                        ICONS[i] = R.drawable.icon_notificationtoemployee;
+                    }else if (lngMenuId == 12){
+                        ICONS[i] = R.drawable.icon_notificationtoall;
+                    }else if (lngMenuId == 13) {
+                        ICONS[i] = R.drawable.icon_notificationview;
+                    }else if (lngMenuId == 24){
+                        ICONS[i] = R.drawable.icon_daily_activity_entry; //Permission Entry
+                    }else if (lngMenuId == 25){
+                        ICONS[i] = R.drawable.icon_daily_activity_approval; //Permission Entry
                     }else if (lngMenuId == 50){
                         ICONS[i] = R.drawable.icon_logout;
                     }

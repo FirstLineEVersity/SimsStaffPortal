@@ -46,6 +46,167 @@ public class SqlliteController  extends SQLiteOpenHelper {
 
         }
     }
+    public void deletePaySlipPayPeriod(long lngEmployeeId){
+        Log.d(LOGCAT,"delete");
+        SQLiteDatabase database = this.getWritableDatabase();
+        try {
+            String deleteQuery = "DELETE FROM payslippayperiod WHERE employeeid="+lngEmployeeId;
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+
+            deleteQuery = "DROP TABLE payslippayperiod";
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+        }catch(Exception e){
+
+        }
+    }
+
+    public void insertPaySlipPayPeriod(long lngEmployeeId,int intOfficeId, int intPayStructureId,
+                                       int intPayperiodId,String strPayPeriod,String strPayPeriodPDFFilename){
+        SQLiteDatabase database = this.getWritableDatabase();
+//        String query = "DROP TABLE payslippayperiod";
+//        database.execSQL(query);
+        String query= "CREATE TABLE IF NOT EXISTS payslippayperiod (employeeid INTEGER," +
+                "officeid integer," +
+                "paystructureid integer," +
+                "payperiodid integer," +
+                "payperioddesc VARCHAR(50)," +
+                "payslipfilename VARCHAR(150),"+
+                "lastupdatedate DATETIME DEFAULT (datetime('now','localtime'))," +
+                "lastloggedin DATETIME DEFAULT (datetime('now','localtime')))";
+        database.execSQL(query);
+        ContentValues values = new ContentValues();
+        values.put("employeeid",lngEmployeeId);
+        values.put("officeid",intOfficeId);
+        values.put("paystructureid",intPayStructureId);
+        values.put("payperiodid",intPayperiodId);
+        values.put("payperioddesc",strPayPeriod);
+        values.put("payslipfilename",strPayPeriodPDFFilename);
+        database.insert("payslippayperiod", null, values);
+        database.close();
+    }
+
+    public void deleteNotificationDetails(long lngEmployeeId){
+        Log.d(LOGCAT,"delete");
+        SQLiteDatabase database = this.getWritableDatabase();
+        try {
+            String deleteQuery = "DELETE FROM notificationdetails where employeeid = " + lngEmployeeId;
+            Log.d("query", deleteQuery);
+            String query= "DROP TABLE notificationdetails ";
+            database.execSQL(query);
+            database.execSQL(deleteQuery);
+        }catch(Exception e){
+
+        }
+    }
+
+    public void insertNotificationDetails(long lngEmployeeId,String strNotificationDate,String strReceviedFrom,String strNotificationTime,String strNotificationTitle,
+                                          String strNotificationMessage){
+        SQLiteDatabase database = this.getWritableDatabase();
+        //String query= "DROP TABLE notificationdetails ";
+        //database.execSQL(query);
+        String query= "CREATE TABLE IF NOT EXISTS notificationdetails (employeeid INTEGER, " +
+                "receivedfrom VARCHAR(50)," +
+                "notificationtitle VARCHAR(50)," +
+                "notificationmessage TEXT," +
+                "notificationdate DATE," +
+                "notificationtime TIME," +
+                "lastupdatedate DATETIME DEFAULT (datetime('now','localtime')))";
+        database.execSQL(query);
+        ContentValues values = new ContentValues();
+        values.put("employeeid",lngEmployeeId);
+        values.put("receivedfrom",strReceviedFrom);
+        values.put("notificationtitle",strNotificationTitle);
+        values.put("notificationmessage",strNotificationMessage);
+        values.put("notificationdate",strNotificationDate);
+        values.put("notificationtime",strNotificationTime);
+        Log.d("insert query",String.valueOf(values));
+        database.insert("notificationdetails", null, values);
+        database.close();
+    }
+
+    public void insertStaffList(int intEmpCategoryId,String strEmpCategoryDesc,String strEmployeeCode,String strEmployeeName,long lngEmployeeId){
+        SQLiteDatabase database = this.getWritableDatabase();
+        String query= "CREATE TABLE IF NOT EXISTS stafflist (employeecategoryid INTEGER, " +
+                "employeecategory VARCHAR(50)," +
+                "employeecode VARCHAR(10),"+
+                "employeename VARCHAR(75),"+
+                "employeeid INTEGER,"+
+                "lastupdatedate DATETIME DEFAULT (datetime('now','localtime')))";
+        database.execSQL(query);
+        ContentValues values = new ContentValues();
+        values.put("employeeid",lngEmployeeId);
+        values.put("employeecategoryid",intEmpCategoryId);
+        values.put("employeecategory",strEmpCategoryDesc);
+        values.put("employeecode",strEmployeeCode);
+        values.put("employeename",strEmployeeName);
+        // Log.d("insert query",String.valueOf(values));
+        database.insert("stafflist", null, values);
+        database.close();
+    }
+
+    public void deleteStaffList(){
+        Log.d(LOGCAT,"delete");
+        SQLiteDatabase database = this.getWritableDatabase();
+        try {
+            String deleteQuery = "DELETE FROM stafflist";
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+            deleteQuery = "DROP TABLE stafflist";
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+        }catch(Exception e){
+
+        }
+    }
+
+    public void insertStaffSubjects(long lngEmployeeId,String strProgramSection,String strSubjectCode,
+                                    String strSubjectDesc,long lngProgSecId,long lngSubjectId){
+        SQLiteDatabase database = this.getWritableDatabase();
+        String query= "CREATE TABLE IF NOT EXISTS staffsubjetcs (employeeid INTEGER, " +
+                "programsection TEXT," +
+                "subjectcode VARCHAR(30)," +
+                "subjectdesc TEXT," +
+                "programsectionid INTEGER," +
+                "subjectid INTEGER," +
+                "lastupdatedate DATETIME DEFAULT (datetime('now','localtime')))";
+        database.execSQL(query);
+        ContentValues values = new ContentValues();
+        values.put("employeeid",lngEmployeeId);
+        values.put("programsection",strProgramSection);
+        values.put("subjectcode",strSubjectCode);
+        values.put("subjectdesc",strSubjectDesc);
+        values.put("programsectionid",lngProgSecId);
+        values.put("subjectid",lngSubjectId);
+        Log.d("insert query",String.valueOf(values));
+        database.insert("staffsubjetcs", null, values);
+        database.close();
+    }
+
+    public void deleteStaffSubjects(long lngEmployeeId){
+        Log.d(LOGCAT,"delete");
+        SQLiteDatabase database = this.getWritableDatabase();
+        try {
+            String deleteQuery = "DELETE FROM staffsubjetcs where employeeid = " + lngEmployeeId;
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+        }catch(Exception e){
+
+        }
+    }
+
+    public void cancelLeaveApplication(long lngLeaveApplnId){
+        Log.d(LOGCAT,"delete");
+        SQLiteDatabase database = this.getWritableDatabase();
+        try {
+            String deleteQuery = "DELETE * FROM leavestatus WHERE leaveapplicationid = " + lngLeaveApplnId;
+            Log.d("query", deleteQuery);
+            database.execSQL(deleteQuery);
+        }catch(Exception e){
+
+        }
+    }
 
     public void insertLoginStaffDetails(long lngEmployeeId,String strStaffName,String strDepartment,String strDesignation,String strMenuIds){
         SQLiteDatabase database = this.getWritableDatabase();

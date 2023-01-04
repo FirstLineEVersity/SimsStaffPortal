@@ -95,6 +95,70 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                         <!-- COLUMN 2  -->
+                        <!-- COLUMN 2  -->
+
+                        <androidx.cardview.widget.CardView
+                            style="@style/StyleHomeGridCardView"
+                            >
+                            <LinearLayout
+                                style="@style/StyleHomeGridLayout"
+                                >
+
+                                <ImageView
+                                    style="@style/StyleHomeGridImage"
+                                    android:src="@drawable/icon_leavemanagement" />
+
+                                <TextView
+                                    style="@style/StyleHomeGridText"
+                                    android:text="@string/hLeave"
+                                    />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <!-- ROW 2  -->
+                        <!-- COLUMN 1  -->
+
+                        <androidx.cardview.widget.CardView
+                            style="@style/StyleHomeGridCardView"
+                            >
+                            <LinearLayout
+                                style="@style/StyleHomeGridLayout"
+                                >
+
+                                <ImageView
+                                    style="@style/StyleHomeGridImage"
+                                    android:src="@drawable/icon_workforce" />
+
+                                <TextView
+                                    style="@style/StyleHomeGridText"
+                                    android:text="@string/hWorkForce"
+                                    />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <!-- COLUMN 1  -->
+
+
+
+                        <androidx.cardview.widget.CardView
+                            style="@style/StyleHomeGridCardView"
+                            >
+                            <LinearLayout
+                                style="@style/StyleHomeGridLayout"
+                                >
+
+                                <ImageView
+                                    style="@style/StyleHomeGridImage"
+                                    android:src="@drawable/icon_communications" />
+
+                                <TextView
+                                    style="@style/StyleHomeGridText"
+                                    android:text="@string/hNotification"
+                                    />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- COLUMN 2  -->
 
                         <!-- COLUMN 1  -->
                         <androidx.cardview.widget.CardView

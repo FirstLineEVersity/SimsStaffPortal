@@ -20,6 +20,7 @@
         android:icon="@drawable/slogo5"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme.NoActionBar.NoActionBar"
         tools:targetApi="31">
         <activity
@@ -57,8 +58,68 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".LeaveStatus"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LeaveEntry"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LeaveAvailability"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LeaveApproval"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
 
-<!--        <activity-->
+        <activity
+            android:name=".StaffBiometricLog"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ViewPaySlipPayPeriod"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ViewPaySlip"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationForStudentsSubjectList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationForStudentsSectionList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationStudentList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationStaffCategory"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationForStaffList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".NotificationView"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+
+
+
+        <!--        <activity-->
 <!--            android:name=".ProfileEdit"-->
 <!--            android:screenOrientation="portrait"-->
 <!--            android:windowSoftInputMode="adjustResize" />-->

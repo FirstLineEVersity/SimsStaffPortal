@@ -235,5 +235,10 @@
 
     <string name="hDailyActivity">Daily Activity</string>
     <string name="hDailyActivityApproval">Daily Activity Approval</string>
+    <string name="bfirstInLate">First In \n Late Hrs</string>
+    <string name="bLastOutEarly">Last Out \n Early Hrs</string>
+    <string name="lsType">Leave Type</string>
+    <string name="nFrom">Received From</string>
+
 
 </resources>
