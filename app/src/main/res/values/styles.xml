@@ -54,6 +54,24 @@
         <item name="cardCornerRadius">10dp</item>
         <item name="cardElevation">5dp</item>
     </style>
+    <style name="textBioValueText">
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="ToggleButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">5</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/toogle_background</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+
+
 
     <style name="StyleHomeGridLayout">
         <item name="android:layout_width">wrap_content</item>

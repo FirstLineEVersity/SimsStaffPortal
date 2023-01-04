@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/staff_biometriclog"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<include
+    android:id="@+id/layoutpageheader"
+    layout="@layout/page_header"/>
+    <TextView
+
+        android:layout_below="@+id/layoutpageheader"
+        android:id="@+id/txtLastUpdatedDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorRed"
+        android:layout_margin="2dp"
+        android:text="@string/lastUpdated"
+        android:textSize="@dimen/last_updated"
+        android:visibility="gone"
+        android:gravity="center_horizontal"/>
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLastUpdatedDate"
+        android:weightSum="13"
+        android:background="@color/cardColoro"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt1"
+                android:text="@string/bDate"
+                style="@style/textBioValue"
+                android:layout_weight="3">
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_column="1"
+                android:id="@+id/txt2"
+                android:text="@string/bFirstIn"
+                style="@style/textBioValue"
+                android:layout_weight="3">
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_column="2"
+                android:id="@+id/txt3"
+                android:text="@string/bLastOut"
+                style="@style/textBioValue"
+                android:layout_weight="3">
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_column="3"
+                android:id="@+id/txt4"
+                android:text="@string/bfirstInLate"
+                style="@style/textBioValue"
+                android:layout_weight="2">
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_column="3"
+                android:id="@+id/txt5"
+                android:text="@string/bLastOutEarly"
+                style="@style/textBioValue"
+                android:layout_weight="2">
+            </TextView>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLeaveStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llHeader"
+        android:layout_gravity="left"
+        android:background="@color/colorWhite"
+        android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

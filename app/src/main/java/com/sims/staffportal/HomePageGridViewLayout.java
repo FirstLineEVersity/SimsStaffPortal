@@ -113,7 +113,7 @@ public class HomePageGridViewLayout extends AppCompatActivity implements Navigat
                         // Intent intent = new Intent(getApplicationContext(), UploadFiles.class);
                         startActivity(intent);
                         finish();
-                    } else if (finalI == 2){ //Logout
+                    } else if (finalI == 5){ //Logout
                         SharedPreferences myPrefs = getApplicationContext().getSharedPreferences("SessionLogin", MODE_PRIVATE);
                         SharedPreferences.Editor editor = myPrefs.edit();
                         editor.clear();

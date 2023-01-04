@@ -22,7 +22,8 @@ public class WebService {
     //Namespace of the Webservice - can be found in WSDL
     private static String NAMESPACE = "http://ws.fipl.com/";
     //Webservice URL - WSDL File location for SRM Client
-    private static String URL = "http://www.srmgroups.com/simswebservice/simswebservice?wsdl";
+    private static String URL = "https://srmgroups.com/simswebservice/simswebservice?wsdl";
+    //private static String URL = "https://erpsrm.com/simswebservice/simswebservice?wsdl";
 
     //SOAP Action URI again Namespace + Web method name
     private static String SOAP_ACTION = "http://ws.fipl.com/";
@@ -35,8 +36,10 @@ public class WebService {
     public static String invokeWS(){
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         String strBody="";
+        Log.e("METHOD_NAME", METHOD_NAME);
         for (int i=0; i<=strParameters.length-1; i=i+3){
             strBody += "<"+strParameters[i+1] + ">" + strParameters[i+2] + "</" + strParameters[i+1] + ">";
+            Log.e("METHOD_Params", strBody);
         }
         EncryptDecrypt ED = new EncryptDecrypt();
         String strEncryptedData =  ED.getEncryptedData(strBody);
@@ -58,7 +61,7 @@ public class WebService {
             if (envelope.bodyIn instanceof SoapFault) {
                 //this is the actual part that will call the webservice
                 String str= ((SoapFault) envelope.bodyIn).faultstring;
-                Log.i("", str);
+                Log.e("result error", str);
             }else {
                 // Get the SoapResult from the envelope body.
                 SoapObject result = (SoapObject) envelope.bodyIn;
@@ -70,6 +73,7 @@ public class WebService {
             Log.e(TAG, "Error: " + e.getMessage());
             e.printStackTrace();
         }
+        Log.e("ResultString", ResultString);
         return ResultString;
     }
 

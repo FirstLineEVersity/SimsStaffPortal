@@ -51,11 +51,53 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
                             v.getContext().startActivity(intent);
                             break;
                         case 2:
+                            break;
+                        case 3:
+                            intent = new Intent(v.getContext(), LeaveStatus.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 4:
+                            intent = new Intent(v.getContext(), LeaveEntry.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 5:
+                            intent = new Intent(v.getContext(), LeaveApproval.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 6:
                             intent = new Intent(v.getContext(), DailyActivityQuestioner.class);
                             v.getContext().startActivity(intent);
                             break;
-                        case 3:
+                        case 7:
                             intent = new Intent(v.getContext(), DailyActivityApproval.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 8:
+                            intent = new Intent(v.getContext(), StaffBiometricLog.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 9:
+                            intent = new Intent(v.getContext(), ViewPaySlipPayPeriod.class);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 10:
+                            intent = new Intent(v.getContext(), NotificationForStudentsSubjectList.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            v.getContext().startActivity(intent);
+                            break;
+                        case 11:
+                            intent = new Intent(v.getContext(), NotificationStaffCategory.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            v.getContext().startActivity(intent);
+                            break;
+//                    case 12:
+//                        intent = new Intent(v.getContext(), NotificationForStudentsSubjectList.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        v.getContext().startActivity(intent);
+//                        break;
+                        case 13:
+                            intent = new Intent(v.getContext(), NotificationList.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             v.getContext().startActivity(intent);
                             break;
                         case 50:
