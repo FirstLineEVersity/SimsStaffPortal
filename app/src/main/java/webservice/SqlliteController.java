@@ -16,7 +16,7 @@ public class SqlliteController  extends SQLiteOpenHelper {
     private static final String LOGCAT = null;
 
     public SqlliteController(Context applicationcontext){
-        super(applicationcontext, "androidsqlitestaffportal.db", null, 1);
+        super(applicationcontext, "simssqlitestaffportal.db", null, 1);
         Log.d(LOGCAT,"Created");
     }
 

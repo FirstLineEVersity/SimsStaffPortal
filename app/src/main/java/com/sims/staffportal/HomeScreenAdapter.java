@@ -28,24 +28,24 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
         TextView tvMenuContent;
         ImageView imageView;
 
-        public ViewHolder(View itemView, int ViewType){                 // Creating ViewHolder Constructor with View and viewType As a parameter
+        public ViewHolder(View itemView, int ViewType) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
             super(itemView);
             // Here we set the appropriate view in accordance with the the view type as passed when the holder object is created
             tvMenuContent = (TextView) itemView.findViewById(R.id.txtMenuContent); // Creating TextView object with the id of textView from item_row.xml
             imageView = (ImageView) itemView.findViewById(R.id.imgMenuImage);// Creating ImageView object with the id of ImageView from item_row.xml
             Holderid = 1;
-            this.itemView.setOnClickListener(new View.OnClickListener(){
+            this.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
+                public void onClick(View v) {
                     String item = mNavTitles[getPosition()]; //leavepending_list.get(getPosition());
                     String[] strColumns = item.split("##");
-                    int intMenuId=Integer.parseInt(strColumns[1]);
+                    int intMenuId = Integer.parseInt(strColumns[1]);
                     //  Log.e("TEst Notification : ",""+intMenuId);
                     if (!CheckNetwork.isInternetAvailable(v.getContext())) {
-                        Toast.makeText(v.getContext(),"You dont have Internet connection", Toast.LENGTH_LONG).show();
+                        Toast.makeText(v.getContext(), "You dont have Internet connection", Toast.LENGTH_LONG).show();
                         return;
                     }
-                    switch (intMenuId){
+                    switch (intMenuId) {
                         case 1:
                             Intent intent = new Intent(v.getContext(), PersonalDetails.class);
                             v.getContext().startActivity(intent);
@@ -90,11 +90,11 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             v.getContext().startActivity(intent);
                             break;
-//                    case 12:
-//                        intent = new Intent(v.getContext(), NotificationForStudentsSubjectList.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        v.getContext().startActivity(intent);
-//                        break;
+                        case 12:
+                            intent = new Intent(v.getContext(), NotificationForStudentsSubjectList.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            v.getContext().startActivity(intent);
+                            break;
                         case 13:
                             intent = new Intent(v.getContext(), NotificationList.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -114,12 +114,14 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
                         default:
                             break;
                     }
-                };
+                }
+
+                ;
             });
         }
     }
 
-    HomeScreenAdapter(String Titles[],int Icons[]){ // HomeScreenAdapter Constructor with titles and icons parameter
+    HomeScreenAdapter(String Titles[], int Icons[]) { // HomeScreenAdapter Constructor with titles and icons parameter
         // titles, icons are passed from the main activity as we
         mNavTitles = Titles;
         mIcons = Icons;
@@ -127,15 +129,15 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
 
     @Override
     public HomeScreenAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.homescreenlistitems,parent,false); //Inflating the layout
-        ViewHolder vhItem = new ViewHolder(v,viewType); //Creating ViewHolder and passing the object of type view
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.homescreenlistitems, parent, false); //Inflating the layout
+        ViewHolder vhItem = new ViewHolder(v, viewType); //Creating ViewHolder and passing the object of type view
         return vhItem; // Returning the created object
     }
 
     @Override
     public void onBindViewHolder(HomeScreenAdapter.ViewHolder holder, int position) {
         try {
-            if (holder.Holderid == 1){                              // as the list view is going to be called after the header view so we decrement the
+            if (holder.Holderid == 1) {                              // as the list view is going to be called after the header view so we decrement the
                 // position by 1 and pass it to the holder while setting the text and image
                 String item = mNavTitles[position]; //leavepending_list.get(getPosition());
                 String[] strColumns = item.split("##");
@@ -143,7 +145,8 @@ public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.Vi
                 holder.imageView.setImageResource(mIcons[position]);// Setting the image with array of our icons
                 holder.tvMenuContent.setTextColor(Color.BLACK);
             }
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     @Override
